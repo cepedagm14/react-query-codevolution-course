@@ -11,12 +11,12 @@ const RQSuperHeroPage = () => {
     "super-heroes",
     fetchSuperHeroes,
     {
-      cacheTime: 5000,
+      // cacheTime: 5000, esta propiedad se usa para agregar un tiempo de cache de las query, por defecto son 5 minutos
+      // staleTime: 30000, es el tiempo de permanencia de datos antes de pasar a obsoletos, lo ideal es dejarlo por defecto puesto que su valor es cero
     }
-
   );
 
-  console.log({isLoading, isFetching});
+  console.log({ isLoading, isFetching });
 
   if (isLoading) {
     return <p>Cargando.....</p>;
