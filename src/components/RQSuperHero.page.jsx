@@ -16,6 +16,8 @@ const RQSuperHeroPage = () => {
       // refetchOnMount: tiene como valores true - false - always
 
       // refetchOnWindowFocus:
+      // refetchInterval: 2000,
+      // refetchIntervalInBackground: true,
     }
   );
 
