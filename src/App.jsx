@@ -4,7 +4,7 @@ import RQSuperHeroPage from "./components/RQSuperHero.page";
 import HomePage from "./components/Home.page";
 import SuperHeroPage from "./components/SuperHero.page";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
 

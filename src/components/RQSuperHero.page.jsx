@@ -7,23 +7,17 @@ const fetchSuperHeroes = () => {
 };
 
 const RQSuperHeroPage = () => {
-  const { isLoading, data, isError, error, isFetching } = useQuery(
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
     {
-      // cacheTime: 5000, esta propiedad se usa para agregar un tiempo de cache de las query, por defecto son 5 minutos
-      // staleTime: 30000, es el tiempo de permanencia de datos antes de pasar a obsoletos, lo ideal es dejarlo por defecto puesto que su valor es cero
-      // refetchOnMount: tiene como valores true - false - always
-
-      // refetchOnWindowFocus:
-      // refetchInterval: 2000,
-      // refetchIntervalInBackground: true,
+      enabled: false,
     }
   );
 
   console.log({ isLoading, isFetching });
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <p>Cargando.....</p>;
   }
   if (isError) {
@@ -32,6 +26,7 @@ const RQSuperHeroPage = () => {
   return (
     <>
       <h2>Super Heroes Page</h2>
+      <button onClick={refetch}>Fetch Heroes</button>
       {data?.data.map((hero) => {
         return <div key={hero.id}>{hero.name}</div>;
       })}
