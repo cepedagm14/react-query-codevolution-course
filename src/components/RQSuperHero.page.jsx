@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
@@ -7,17 +7,36 @@ const fetchSuperHeroes = () => {
 };
 
 const RQSuperHeroPage = () => {
+  const[refetchInterval,setRefetchInterval] = useState(3000)
+  // const onSuccess = (data) => {
+  //   console.log("Perform side effect after data fetching", data);
+  // };
+
+  // const onError = (error) => {
+  //   console.log("Perform side effect after encountering error", error);
+  // };
+
+  const onSuccess = (data) => {
+    if (data.data.length === 4) {
+      return setRefetchInterval(false);
+    } else {
+      return refetchInterval;
+    }
+    //console.log("perform side-effect after data fetching",data)
+  };
+  const onError = (error) => {
+    //console.log("perform side-effect after encountering error",error)
+    if (error) {
+      return setRefetchInterval(false);
+    }
+  };
+
   const { isLoading, data, isError, error, isFetching } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
     {
-      // cacheTime: 5000, esta propiedad se usa para agregar un tiempo de cache de las query, por defecto son 5 minutos
-      // staleTime: 30000, es el tiempo de permanencia de datos antes de pasar a obsoletos, lo ideal es dejarlo por defecto puesto que su valor es cero
-      // refetchOnMount: tiene como valores true - false - always
-
-      // refetchOnWindowFocus:
-      // refetchInterval: 2000,
-      // refetchIntervalInBackground: true,
+      onSuccess,
+      onError,
     }
   );
 
