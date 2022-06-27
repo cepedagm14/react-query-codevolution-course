@@ -4,7 +4,6 @@ import { useSuperHeroesData } from "../hooks/useSuperHroesData";
 
 const RQSuperHeroPage = () => {
   const onSuccess = (data) => {
-    console.log("success", data);
   };
 
   const onError = () => {};
