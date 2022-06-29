@@ -11,6 +11,7 @@ import RQDinamicParallelQuerys from "./components/RQDinamicParallelQuerys";
 import RQDependenQuery from "./components/RQDependenQuery";
 import RQPaginatedQueries from "./components/RQPaginatedQueries";
 import RQInfiniteQueries from "./components/RQInfiniteQueries";
+import RQMutations from "./components/RQMutations";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,9 @@ function App() {
               <li>
                 <Link to="/rq-infinite">Infinited Query</Link>
               </li>
+              <li>
+                <Link to="/rq-mutation">Mutations</Link>
+              </li>
             </ul>
           </nav>
 
@@ -64,6 +68,7 @@ function App() {
             />
             <Route path="/rq-paginated" element={<RQPaginatedQueries />} />
             <Route path="/rq-infinite" element={<RQInfiniteQueries />} />
+            <Route path="/rq-mutation" element={<RQMutations />} />
           </Routes>
         </div>
       </BrowserRouter>
