@@ -10,6 +10,7 @@ import RQParallelQuery from "./components/RQParallelQuery";
 import RQDinamicParallelQuerys from "./components/RQDinamicParallelQuerys";
 import RQDependenQuery from "./components/RQDependenQuery";
 import RQPaginatedQueries from "./components/RQPaginatedQueries";
+import RQInfiniteQueries from "./components/RQInfiniteQueries";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,9 @@ function App() {
               <li>
                 <Link to="/rq-paginated">Paginated Query</Link>
               </li>
+              <li>
+                <Link to="/rq-infinite">Infinited Query</Link>
+              </li>
             </ul>
           </nav>
 
@@ -59,6 +63,7 @@ function App() {
               element={<RQDependenQuery email="aurigak@aurigak.com" />}
             />
             <Route path="/rq-paginated" element={<RQPaginatedQueries />} />
+            <Route path="/rq-infinite" element={<RQInfiniteQueries />} />
           </Routes>
         </div>
       </BrowserRouter>
