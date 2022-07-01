@@ -29,6 +29,11 @@
       "name": "IronMan",
       "alterEgo": "Tony Stark",
       "id": 6
+    },
+    {
+      "name": "CatWoman",
+      "alterEgo": "Selina Kyle",
+      "id": 7
     }
   ],
   "friends": [
