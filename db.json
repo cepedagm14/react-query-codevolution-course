@@ -24,6 +24,11 @@
       "name": "Green Lintern",
       "alterEgo": "Alan Scott",
       "id": 5
+    },
+    {
+      "name": "IronMan",
+      "alterEgo": "Tony Stark",
+      "id": 6
     }
   ],
   "friends": [
